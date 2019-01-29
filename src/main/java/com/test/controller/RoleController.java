@@ -1,17 +1,15 @@
 package com.test.controller;
 
-import java.util.List;
-
+import com.test.entity.Role;
+import com.test.service.PermissionService;
+import com.test.service.RoleService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.test.entity.Role;
-import com.test.service.PermissionService;
-import com.test.service.RoleService;
+import java.util.List;
 
 @Controller
 @RequestMapping("/role")
@@ -24,9 +22,8 @@ public class RoleController {
 	@RequiresPermissions("role:list")
 	@RequestMapping("/list")
 	public ModelAndView showRoleList(){
-		List list=roleService.getAllRoles();
-		
-		ModelAndView mav=new ModelAndView("role-list");
+		List list = roleService.getAllRoles();
+		ModelAndView mav = new ModelAndView("role-list");
 		mav.addObject("roles", list);
 		return mav;
 	}

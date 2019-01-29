@@ -1,9 +1,8 @@
 package com.test.mapper;
 
-import java.util.List;
-
 import com.test.entity.Role;
 import com.test.entity.RolePermission;
+import java.util.List;
 
 public interface RoleMapper {
 	void addRole(Role role);
@@ -12,7 +11,6 @@ public interface RoleMapper {
 	List<Role> findRolesByUserName(String userName);
 	List<Role> findAllRoles();
 	void updateRole(Role role);
-
 	void deleteUserRole(Long roleId);
 	void deleteRolePermission(Long roleId);
 	void addRolePermission(RolePermission rolePermission);

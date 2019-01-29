@@ -1,23 +1,19 @@
 package com.test.controller;
 
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
+import com.test.entity.User;
+import com.test.service.PasswordService;
+import com.test.service.RoleService;
+import com.test.service.UserService;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.test.entity.User;
-import com.test.service.PasswordService;
-import com.test.service.RoleService;
-import com.test.service.UserService;
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -31,16 +27,16 @@ public class UserController {
 	
 	@RequestMapping("/login")
 	public ModelAndView login(HttpServletRequest req){
-		String error=null;
+		String error = null;
 		String exceptionClassName = (String)req.getAttribute("shiroLoginFailure");
         if(UnknownAccountException.class.getName().equals(exceptionClassName)) {
-            error = "ÓÃ»§Ãû/ÃÜÂë´íÎó";
+            error = "ç”¨æˆ·å/å¯†ç é”™è¯¯";
         } else if(IncorrectCredentialsException.class.getName().equals(exceptionClassName)) {
-            error = "ÓÃ»§Ãû/ÃÜÂë´íÎó";
+            error = "ç”¨æˆ·å/å¯†ç é”™è¯¯";
         } else if(exceptionClassName != null) {
-            error = "ÆäËû´íÎó£º" + exceptionClassName;
+            error = "å…¶ä»–é”™è¯¯ï¼š" + exceptionClassName;
         }
-        ModelAndView mav=new ModelAndView("login");
+        ModelAndView mav = new ModelAndView("login");
         mav.addObject("error", error);
 		return mav;
 	}
@@ -48,8 +44,8 @@ public class UserController {
 	@RequiresPermissions("user:list")
 	@RequestMapping("/list")
 	public ModelAndView showUserList(){
-		List list=userService.getAllUsers();
-		ModelAndView mav=new ModelAndView("user-list");
+		List list = userService.getAllUsers();
+		ModelAndView mav = new ModelAndView("user-list");
 		mav.addObject("users", list);
 		return mav;
 	}
@@ -61,7 +57,7 @@ public class UserController {
 		userService.addUser(user, roleIds);
 		return user;
 	}
-	
+
 	@RequiresPermissions("user:showroles")
 	@RequestMapping("/showroles")
 	@ResponseBody

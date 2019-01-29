@@ -1,8 +1,7 @@
 package com.test.mapper;
 
-import java.util.List;
-
 import com.test.entity.Permission;
+import java.util.List;
 
 public interface PermissionMapper {
 	void addPermission(Permission permission);
@@ -12,6 +11,5 @@ public interface PermissionMapper {
 	List<Permission> findPermissionsByRoleId(Long roleId);
 	List<Permission> findAllPermissions();
 	void updatePermission(Permission permission);
-	
 	void deleteRolePermission(Long permissionId);
 }

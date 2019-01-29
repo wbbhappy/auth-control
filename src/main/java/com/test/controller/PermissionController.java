@@ -1,16 +1,14 @@
 package com.test.controller;
 
-import java.util.List;
-
+import com.test.entity.Permission;
+import com.test.service.PermissionService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.test.entity.Permission;
-import com.test.service.PermissionService;
+import java.util.List;
 
 @Controller
 @RequestMapping("/perm")
@@ -21,11 +19,9 @@ public class PermissionController {
 	@RequiresPermissions("perm:list")
 	@RequestMapping("/list")
 	public ModelAndView showRoleList(){
-		List<Permission> list=permissionService.getAllPermissions();
-		
-		ModelAndView mav=new ModelAndView("permission-list");
+		List<Permission> list = permissionService.getAllPermissions();
+		ModelAndView mav = new ModelAndView("permission-list");
 		mav.addObject("perms", list);
-		
 		return mav;
 	}
 	

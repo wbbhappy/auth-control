@@ -1,8 +1,7 @@
 package com.test.service;
 
-import java.util.List;
-
 import com.test.entity.Role;
+import java.util.List;
 
 public interface RoleService {
 	Long addRole(Role role,Long...permissionIds);
@@ -12,6 +11,5 @@ public interface RoleService {
 	List<Role> getRolesByUserName(String userName);
 	List<Role> getAllRoles();
 	void updateRole(Role role,Long...permIds);
-	
 	void addRolePermissions(Long roleId,Long...permissionIds);
 }

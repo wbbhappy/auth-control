@@ -12,7 +12,7 @@ public class DefaultExceptionHandler {
 	@ExceptionHandler({UnauthorizedException.class})
 	@ResponseStatus(HttpStatus.UNAUTHORIZED)
 	public ModelAndView processUnauthenticatedException(UnauthorizedException e){
-		ModelAndView mav=new ModelAndView("unauthorized");
+		ModelAndView mav = new ModelAndView("unauthorized");
 		mav.addObject("exception", e);
 		return mav;
 	}

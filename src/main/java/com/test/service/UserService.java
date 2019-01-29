@@ -1,22 +1,21 @@
 package com.test.service;
 
+import com.test.entity.Navigation;
+import com.test.entity.User;
 import java.util.List;
 import java.util.Set;
 
-import com.test.entity.Navigation;
-import com.test.entity.User;
-
 public interface UserService {
-	void addUser(User user,Long...roleIds);//Ìí¼ÓÓÃ»§
-	void deleteUser(Long userId);//É¾³ıÓÃ»§
-	void deleteMoreUsers(Long...userIds);//ÅúÁ¿É¾³ıÓÃ»§
-	User getUserByUserName(String userName);//¸ù¾İÓÃ»§Ãû»ñÈ¡ÓÃ»§
-	List<User> getAllUsers();//»ñÈ¡ËùÓĞÓÃ»§
-	
-	void updateUserRoles(Long userId,Long...roleIds);//Ìí¼ÓÓÃ»§½ÇÉ«¹ØÁª
-	
-	Set<String> findRolesByUserName(String userName);//¸ù¾İÓÃ»§Ãû»ñÈ¡ÓÃ»§ËùÓĞ½ÇÉ«
-	Set<String> findPermissionsByUserName(String userName);//¸ù¾İÓÃ»§Ãû»ñÈ¡ÓÃ»§ËùÓĞÈ¨ÏŞ
-	
-	List<Navigation> getNavigationBar(String userName);//»ñÈ¡µ¼º½À¸ÄÚÈİ
+	void addUser(User user,Long...roleIds);					//æ·»åŠ ç”¨æˆ·
+	void deleteUser(Long userId);							//åˆ é™¤ç”¨æˆ·
+	void deleteMoreUsers(Long...userIds);					//æ‰¹é‡åˆ é™¤ç”¨æˆ·
+	User getUserByUserName(String userName);				//æ ¹æ®ç”¨æˆ·åè·å–ç”¨æˆ·
+	List<User> getAllUsers();								//è·å–æ‰€æœ‰ç”¨æˆ·
+
+	void updateUserRoles(Long userId,Long...roleIds);		//æ·»åŠ ç”¨æˆ·è§’è‰²å…³è”
+
+	Set<String> findRolesByUserName(String userName);		//æ ¹æ®ç”¨æˆ·åè·å–ç”¨æˆ·æ‰€æœ‰è§’è‰²
+	Set<String> findPermissionsByUserName(String userName);	//æ ¹æ®ç”¨æˆ·åè·å–ç”¨æˆ·æ‰€æœ‰æƒé™
+
+	List<Navigation> getNavigationBar(String userName);		//è·å–å¯¼èˆªæ å†…å®¹
 }
