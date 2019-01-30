@@ -10,7 +10,9 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
-
+/**
+ *扩展FormAuthenticationFilter:用于登录后获取用户导航栏，并将其存入session范围
+ */
 public class WithNavibarFormAuthenticationFilter extends FormAuthenticationFilter {
 	@Autowired
 	private UserService userService;

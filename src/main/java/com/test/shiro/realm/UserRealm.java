@@ -13,7 +13,9 @@ import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.test.entity.User;
 import com.test.service.UserService;
-
+/**
+ * 扩展AuthorizingRealm:用于从数据库抓取密码等相关验证信息和相关权限信息
+ */
 public class UserRealm extends AuthorizingRealm{
 	@Autowired
 	private UserService userService;
@@ -22,7 +24,7 @@ public class UserRealm extends AuthorizingRealm{
 		String userName = (String)principals.getPrimaryPrincipal();
 		
 		SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
-		authorizationInfo.setRoles(userService.findPermissionsByUserName(userName));
+		authorizationInfo.setRoles(userService.findRolesByUserName(userName));
 		authorizationInfo.setStringPermissions(userService.findPermissionsByUserName(userName));
 		
 		return authorizationInfo;

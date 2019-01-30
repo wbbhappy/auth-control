@@ -7,7 +7,10 @@ import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheManager;
 import java.util.concurrent.atomic.AtomicInteger;
-
+/**
+ * 密码输入错误次数限制
+ * 密码重试5次次数限制
+ */
 public class RetryLimitHashedCredentialsMatcher extends HashedCredentialsMatcher{
 	private Cache<String,AtomicInteger> passwordRetryCache;
 	
